@@ -1,8 +1,8 @@
 from rest_framework import viewsets
 from products.models import Sku, Sales, Store
 from api.serializers import SkuSerializer, SalesSerializer, StoreSerializer
-from django_filters.rest_framework import DjangoFilterBackend
-from api.filters import SalesFilter
+
+
 
 class SkuViewSet(viewsets.ReadOnlyModelViewSet):
     '''Обработчик для товаров.'''
