@@ -7,7 +7,6 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 import yaml
 
-
 class CustomOpenAPISchemaGenerator(OpenAPISchemaGenerator):
     def get_schema(self, request=None, public=False):
         schema = super().get_schema(request, public)
@@ -21,13 +20,13 @@ schema_view = get_schema_view(
         title="API Documentation",
         default_version='v1',
         description="API documentation for Lenta project",
-        terms_of_service="https://www.example.com/policies/terms/",
+        terms_of_service="https://www.example.com/terms/",
         contact=openapi.Contact(email="contact@example.com"),
         license=openapi.License(name="BSD License"),
     ),
     public=True,
     permission_classes=(permissions.AllowAny,),
-    generator_class=CustomOpenAPISchemaGenerator,
+    # generator_class=CustomOpenAPISchemaGenerator,
 )
 
 urlpatterns = [

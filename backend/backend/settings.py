@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = [os.getenv('HOST'), '127.0.0.1', 'localhost', '0.0.0.0']
+ALLOWED_HOSTS = ['*', os.getenv('HOST'), '127.0.0.1', 'localhost', '0.0.0.0',]
 
 
 # Application definition
@@ -147,7 +147,7 @@ AUTH_USER_MODEL = 'users.LentaUser'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
@@ -164,6 +164,7 @@ CORS_URLS_REGEX = r'^/api/.*$'
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
 ]
+
 
 DJOSER = {
     'LOGIN_FIELD': 'email',
